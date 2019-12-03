@@ -1,4 +1,4 @@
-module RentalHelper 
+module RentalHelper
   def status_badge(rental)
     if rental.scheduled?
       content_tag :span, class: 'badge badge-primary' do

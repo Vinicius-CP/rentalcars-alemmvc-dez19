@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-describe CarModelPresenter do 
-  describe '#car_options' do 
-    it 'shoul do car options' do
-      car_model = build(:carl_model)
+describe CarModelDecorator do
+  describe '#car_options' do
+    it 'should return an array' do
+      car_model = build(:car_model, car_options: 'ar cond, teto solar, car play')
+      result = car_model.decorate.car_options
 
-      result = CarModelPresenter.new(car_model).car_options
-
-      expect(result).to eq('<ul><li>ar cand</li><li>teto solar</li></ul>')
+      expect(result).to match(['ar cond', 'teto solar', 'car play'])
     end
   end
 end
